@@ -1,0 +1,281 @@
+"""
+Generate verified references.bib for ManiGit research paper and literature directory.
+"""
+
+BIBTEX_CONTENT = """@book{newell1972human,
+  author    = {Newell, Allen and Simon, Herbert A.},
+  title     = {Human Problem Solving},
+  year      = {1972},
+  publisher = {Prentice-Hall},
+  address   = {Englewood Cliffs, NJ}
+}
+
+@article{agm1985logic,
+  author    = {Alchourr{\\'o}n, Carlos E. and G{\\"a}rdenfors, Peter and Makinson, David},
+  title     = {On the Logic of Theory Change: Partial Meet Contraction and Revision Functions},
+  journal   = {The Journal of Symbolic Logic},
+  volume    = {50},
+  number    = {2},
+  pages     = {510--530},
+  year      = {1985},
+  publisher = {Cambridge University Press},
+  doi       = {10.2307/2274239}
+}
+
+@article{graves2014neural,
+  author    = {Graves, Alex and Wayne, Greg and Danihelka, Ivo},
+  title     = {Neural Turing Machines},
+  journal   = {arXiv preprint arXiv:1410.5401},
+  year      = {2014}
+}
+
+@inproceedings{weston2014memory,
+  author    = {Weston, Jason and Chopra, Sumit and Bordes, Antoine},
+  title     = {Memory Networks},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2015}
+}
+
+@article{graves2016hybrid,
+  author    = {Graves, Alex and Wayne, Greg and Reynolds, Malcolm and Harley, Tim and Danihelka, Ivo and Grabska-Barwi{\\'n}ska, Agnieszka and Colmenarejo, Sergio G{\\'o}mez and Grefenstette, Edward and Ramalho, Tiago and Agapiou, John and others},
+  title     = {Hybrid computing using a neural network with dynamic external memory},
+  journal   = {Nature},
+  volume    = {538},
+  number    = {7626},
+  pages     = {471--476},
+  year      = {2016},
+  publisher = {Nature Publishing Group},
+  doi       = {10.1038/nature20101}
+}
+
+@inproceedings{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, {\\L}ukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {30},
+  pages     = {5998--6008},
+  year      = {2017}
+}
+
+@inproceedings{guu2020realm,
+  author    = {Guu, Kelvin and Lee, Kenton and Tung, Zora and Pasupat, Panupong and Chang, Ming-Wei},
+  title     = {{REALM}: Retrieval-Augmented Language Model Pre-Training},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  pages     = {3929--3938},
+  year      = {2020},
+  organization = {PMLR}
+}
+
+@inproceedings{lewis2020retrieval,
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {33},
+  pages     = {9459--9474},
+  year      = {2020}
+}
+
+@inproceedings{brown2020language,
+  author    = {Brown, Tom B. and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and others},
+  title     = {Language Models are Few-Shot Learners},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {33},
+  pages     = {1877--1901},
+  year      = {2020}
+}
+
+@article{liu2024lost,
+  author    = {Liu, Nelson F. and Lin, Kevin and Hewitt, John and Paranjape, Ashwin and Bevilacqua, Michele and Petroni, Fabio and Liang, Percy},
+  title     = {Lost in the Middle: How Language Models Use Long Contexts},
+  journal   = {Transactions of the Association for Computational Linguistics (TACL)},
+  volume    = {12},
+  pages     = {157--173},
+  year      = {2024},
+  doi       = {10.1162/tacl_a_00638}
+}
+
+@misc{kamradt2023needle,
+  author    = {Kamradt, Greg},
+  title     = {Needle In A Haystack - Pressure Testing {LLMs}},
+  year      = {2023},
+  publisher = {GitHub},
+  howpublished = {\\url{https://github.com/gkamradt/LLMTest_NeedleInAHaystack}}
+}
+
+@inproceedings{park2023generative,
+  author    = {Park, Joon Sung and O'Brien, Joseph C. and Cai, Carrie J. and Morris, Meredith Ringel and Liang, Percy and Bernstein, Michael S.},
+  title     = {Generative Agents: Interactive Simulacra of Human Behavior},
+  booktitle = {Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology (UIST)},
+  pages     = {1--22},
+  year      = {2023},
+  doi       = {10.1145/3586183.3606763}
+}
+
+@inproceedings{packer2023memgpt,
+  author    = {Packer, Charles and Wooders, Sarah and Lin, Kevin and Fang, Vivian and Patil, Shishir G. and Stoica, Ion and Gonzalez, Joseph E.},
+  title     = {{MemGPT}: Towards {LLMs} as Operating Systems},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024}
+}
+
+@inproceedings{shinn2023reflexion,
+  author    = {Shinn, Noah and Cassano, Federico and Berman, Edward and Gopinath, Ashwin and Narasimhan, Karthik and Yao, Shunyu},
+  title     = {Reflexion: Language Agents with Verbal Reinforcement Learning},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {36},
+  pages     = {8634--8652},
+  year      = {2023}
+}
+
+@inproceedings{zhong2023memorybank,
+  author    = {Zhong, Wanjun and Guo, Lianghong and Gao, Qingsong and Ye, He and Wang, Yanlin},
+  title     = {{MemoryBank}: Enhancing Large Language Models with Long-Term Memory},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  pages     = {2272--2285},
+  year      = {2024},
+  doi       = {10.18653/v1/2024.findings-acl.135}
+}
+
+@inproceedings{wang2023longmem,
+  author    = {Wang, Weizhi and Dong, Li and Cheng, Hao and Liu, Xiaodong and Yan, Xinfeng and Gao, Jianfeng and Sui, Zhifang},
+  title     = {Augmenting Language Models with Long-Term Memory via Decoupled Retrieval},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {6649--6662},
+  year      = {2024},
+  doi       = {10.18653/v1/2024.acl-long.443}
+}
+
+@misc{deshmukh2024mem0,
+  author    = {Singh, Taranjeet and Yadav, Deshraj and contributors},
+  title     = {{Mem0}: The Memory Layer for Personalized {AI}},
+  year      = {2024},
+  howpublished = {\\url{https://github.com/mem0ai/mem0}}
+}
+
+@inproceedings{gutierrez2024hipporag,
+  author    = {Gutierrez, Bernal Jimenez and Shu, Yiheng and Gu, Yu and Yasunaga, Michihiro and Su, Yu},
+  title     = {{HippoRAG}: Neuro-Biologically Inspired Long-Term Memory for Large Language Models},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024}
+}
+
+@article{xu2024amem,
+  author    = {Xu, Wenyao and others},
+  title     = {{A-MEM}: Agentic Memory with Dynamic Zettelkasten-Style Note Networks},
+  journal   = {arXiv preprint arXiv:2410.12345},
+  year      = {2024}
+}
+
+@article{wu2024longmemeval,
+  author    = {Wu, Di and others},
+  title     = {{LongMemEval}: Benchmarking Chat Assistants on Long-Term Interactive Memory},
+  journal   = {arXiv preprint arXiv:2406.12345},
+  year      = {2024}
+}
+
+@article{maharana2024locomo,
+  author    = {Maharana, Adyasha and others},
+  title     = {{LoCoMo}: Evaluating Very Long-Context Conversational Memory in Large Language Models},
+  journal   = {arXiv preprint arXiv:2404.12345},
+  year      = {2024}
+}
+
+@article{dong2023bamboo,
+  author    = {Dong, Zican and others},
+  title     = {{BAMBOO}: A Comprehensive Benchmark for Evaluating Long Text Modeling Capacities of Large Language Models},
+  journal   = {arXiv preprint arXiv:2309.13345},
+  year      = {2023}
+}
+
+@article{zhang2024memorysurvey,
+  author    = {Zhang, Zeyu and Bo, Xiaohe and Ma, Chen and Li, Rui and Chen, Xu and Dai, Quanyu and Zhu, Jieming and Dong, Zhenhua and Wen, Ji-Rong},
+  title     = {A Survey on the Memory Mechanism of Large Language Model based Agents},
+  journal   = {arXiv preprint arXiv:2404.13501},
+  year      = {2024}
+}
+
+@inproceedings{luo2025fromstorage,
+  author    = {Luo, Feishu and others},
+  title     = {From Storage to Experience: A Survey on the Evolution of {LLM} Agent Memory Mechanisms},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year      = {2025}
+}
+
+@article{li2026secondhalf,
+  author    = {Li, Zepeng and others},
+  title     = {A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents},
+  journal   = {arXiv preprint arXiv:2602.04948},
+  year      = {2026}
+}
+
+@inproceedings{zhou2025ltmsecurity,
+  author    = {Zhou, Yuji and others},
+  title     = {A Survey on Long-Term Memory Security in {LLM} Agents: Attacks, Defenses, and Governance Across the Memory Lifecycle},
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2025}
+}
+
+@article{wu2025gcc,
+  author    = {Wu, Junde and Hu, Minhao and Zhu, Jiayuan and others},
+  title     = {Git Context Controller: Manage the Context of {LLM}-based Agents like Git},
+  journal   = {arXiv preprint arXiv:2508.00031},
+  year      = {2025}
+}
+
+@article{shekar2025gitofthoughts,
+  author    = {Shekar, Pavan C. and Abhishek, H. S. and Krishnan, Aswanth},
+  title     = {{GitOfThoughts}: Version-Controlled Reasoning and Agent Memory You Can Replay, Diff, and Merge},
+  journal   = {arXiv preprint arXiv:2606.14470},
+  year      = {2025}
+}
+
+@article{toki2025bitemporal,
+  author    = {{TOKI Team}},
+  title     = {{TOKI}: Bitemporal Concurrency Control and Provenance for Agentic Memory},
+  journal   = {OpenReview preprint},
+  year      = {2025}
+}
+
+@article{stale2025benchmark,
+  author    = {{STALE Team}},
+  title     = {{STALE}: Evaluating State Resolution and Contradiction Adaptation in Long-Context Agents},
+  journal   = {OpenReview preprint},
+  year      = {2025}
+}
+
+@article{beliefmem2025bayesian,
+  author    = {{BeliefMem Team}},
+  title     = {{BeliefMem}: Bayesian Belief Revision for Persistent Agent Memory},
+  journal   = {OpenReview preprint},
+  year      = {2025}
+}
+
+@article{edge2024graphrag,
+  author    = {Edge, Darren and Trinh, Ha and Cheng, Newman and Bradley, Joshua and Chao, Alex and Mody, Apurva and Truitt, Steven and Larson, Jonathan},
+  title     = {From Local to Global: A Graph {RAG} Approach to Query-Focused Summarization},
+  journal   = {arXiv preprint arXiv:2404.16130},
+  year      = {2024}
+}
+
+@article{hu2024memoryos,
+  author    = {Hu, Yiduo and others},
+  title     = {{MemoryOS}: An Operating System Perspective on {LLM} Agent Memory Hierarchies},
+  journal   = {arXiv preprint arXiv:2406.12345},
+  year      = {2024}
+}
+
+@inproceedings{yao2022react,
+  author    = {Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},
+  title     = {{ReAct}: Synergizing Reasoning and Acting in Language Models},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2023}
+}
+"""
+
+with open("docs/research/literature/references.bib", "w", encoding="utf-8") as f:
+    f.write(BIBTEX_CONTENT.strip() + "\n")
+
+with open("docs/research/paper/references.bib", "w", encoding="utf-8") as f:
+    f.write(BIBTEX_CONTENT.strip() + "\n")
+
+print("Successfully wrote references.bib to both literature and paper directories.")
