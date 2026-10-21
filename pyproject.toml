@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manigit"
+version = "0.1.0"
+description = "Transparent, Versioned Context Memory for Long-Running AI Agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "ManiGit Team" }
+]
+keywords = [
+    "ai",
+    "agents",
+    "memory",
+    "context-window",
+    "version-control",
+    "git",
+    "llm"
+]
+dependencies = [
+    "pydantic>=2.0",
+    "typing_extensions>=4.5.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+addopts = "-v"
