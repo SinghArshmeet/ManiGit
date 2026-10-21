@@ -1,0 +1,41 @@
+\section{Ablation Study and Mechanism Analysis}
+\label{sec:ablation}
+\label{sec:ablation_results}
+
+To rigorously answer our central research question, we isolate the quantitative contribution of each core ManiGit mechanism. Table~\ref{tab:ablation_degradation} summarizes paired degradation deltas across all 110 query-budget pairs relative to ManiGit Full, and Table~\ref{tab:mechanism_scenarios} breaks down performance on targeted mechanism scenarios. Fig.~\ref{fig:ablation_degradation} visualizes the degradation impact.
+
+\input{tables/table2_ablation_degradation.tex}
+
+\begin{figure}[t]
+\centering
+\input{figures/fig8_ablation_degradation.tex}
+\caption{Ablation degradation deltas relative to ManiGit Full evaluated across $N=110$ identical query-budget pairs. Disabling contradiction detection or confidence calibration each causes a -5.0\% degradation in correctness.}
+\label{fig:ablation_degradation}
+\end{figure}
+
+\subsection{Ablation 1: Contribution of Contradiction Supersession}
+In the \textbf{ManiGit (no\_contradiction)} condition, the contradiction detector is disabled: when a new fact contradicts an active fact, the older fact is neither archived nor superseded; both facts remain active in memory.
+
+As shown in Table~\ref{tab:ablation_degradation}, disabling contradiction handling causes a \textbf{-5.0\% degradation in overall answer correctness} (from 86.4\% to 81.8\%) and a \textbf{-5.0\% degradation in contradiction accuracy}. 
+
+The targeted scenario analysis in Table~\ref{tab:mechanism_scenarios} reveals the exact causal mechanism: on the canonical PostgreSQL $\to$ MongoDB migration scenario, accuracy drops precipitously from \textbf{100.0\% to 50.0\%}. Because both the obsolete PostgreSQL choice and the newer MongoDB requirement are compiled into the prompt simultaneously, the model adapter is exposed to uncurated ghost context, causing it to default to the earlier premise. This provides decisive empirical confirmation for \textbf{H3}: automated contradiction supersession is essential for multi-session agent consistency.
+
+\subsection{Ablation 2: Contribution of Confidence-Aware Classification}
+In the \textbf{ManiGit (no\_confidence)} condition, the confidence calibration threshold is neutralized: candidate statements are ingested without confidence weighting, causing ambiguous or speculative assertions to bypass the conservative intake filter.
+
+Table~\ref{tab:ablation_degradation} shows that neutralizing confidence awareness results in a \textbf{-5.0\% degradation in fact recall} (from 86.4\% to 81.8\%) and a \textbf{-5.0\% degradation in answer correctness}.
+
+The mechanism-specific breakdown in Table~\ref{tab:mechanism_scenarios} highlights the failure mode: on the ambiguous scaling scenario (``We might scale to 10 nodes, but it is tentative''), accuracy drops from \textbf{100.0\% to 0.0\%}. In ManiGit Full, calibrated confidence scores prevent speculative or uncertain statements from prematurely entering active memory tiers, ensuring that unconfirmed guesses do not corrupt production facts. This confirms \textbf{H4}.
+
+\input{tables/table4_mechanism_scenarios.tex}
+
+\subsection{Ablation 3: Contribution of Tier-Aware Context Selection}
+In the \textbf{ManiGit (no\_tier)} condition, memory tier preference multipliers ($T(m_i)$) are set to $1.0$ across all active tiers. While the memory store retains \texttt{VERBATIM} and \texttt{SUMMARY} labels, the greedy knapsack compiler treats all active memories with equal tier priority.
+
+Overall, Table~\ref{tab:ablation_degradation} shows a modest \textbf{-1.0\% degradation} across the entire benchmark. However, inspecting the budget-specific results in Table~\ref{tab:budget_breakdown} and Table~\ref{tab:mechanism_scenarios} reveals where the mechanism operates:
+\begin{itemize}
+    \item At budgets $B \ge 256$, both verbatim facts and summaries fit comfortably within the context window, masking the effect of tier ranking.
+    \item At the constrained budget \textbf{$B=128$}, fact recall drops from \textbf{86.4\% in ManiGit Full to 81.8\% in no\_tier}.
+    \item In the targeted tier competition scenario where an exact technical constraint (e.g., a specific port or timeout) competes with a verbose narrative summary, recall drops from \textbf{100.0\% to 0.0\%} under $B=128$.
+\end{itemize}
+Without tier boosting, the knapsack compiler packs the longer narrative summary, crowding out the concise verbatim constraint. Tier-aware context selection ensures that high-fidelity constraints are prioritized when prompt space is scarce, confirming \textbf{H5}.

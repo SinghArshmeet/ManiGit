@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.98\columnwidth, height=5.2cm,
+    xlabel={Token Budget $B$},
+    ylabel={Average Context Tokens},
+    xmin=100, xmax=2100,
+    ymin=0, ymax=600,
+    legend pos=north west,
+    legend style={font=\tiny},
+    grid=both,
+    tick label style={font=\tiny},
+    label style={font=\scriptsize}
+]
+\addplot[color=red, mark=square*] coordinates {
+    (128, 105.0) (256, 165.5) (512, 264.2) (1024, 422.1) (2048, 535.1)
+};
+\addlegendentry{Full History}
+
+\addplot[color=blue, mark=*] coordinates {
+    (128, 75.0) (256, 118.6) (512, 182.0) (1024, 237.6) (2048, 237.6)
+};
+\addlegendentry{ManiGit (Full)}
+
+\addplot[color=teal, mark=triangle*] coordinates {
+    (128, 88.0) (256, 143.9) (512, 215.4) (1024, 248.2) (2048, 248.2)
+};
+\addlegendentry{RAG Retrieval}
+
+\addplot[color=orange, mark=diamond*] coordinates {
+    (128, 112.4) (256, 142.0) (512, 142.0) (1024, 142.0) (2048, 142.0)
+};
+\addlegendentry{Sliding Window}
+
+\addplot[color=purple, mark=x] coordinates {
+    (128, 33.4) (256, 33.4) (512, 33.4) (1024, 33.4) (2048, 33.4)
+};
+\addlegendentry{Running Summary}
+\end{axis}
+\end{tikzpicture}

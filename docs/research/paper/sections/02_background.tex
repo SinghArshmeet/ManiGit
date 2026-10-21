@@ -1,0 +1,24 @@
+\section{Background}
+\label{sec:background}
+
+To contextualize ManiGit's architectural contributions, we review the foundational concepts governing context dynamics, retrieval augmentation, and agent memory management.
+
+\subsection{Long-Context Language Models}
+The Transformer architecture~\cite{vaswani2017attention} represents context through dynamic multi-head self-attention over token sequences. Early autoregressive models operated with strict context horizons, typically bounded at 2,048 or 4,096 tokens~\cite{brown2020language}. Recent advances in rotary position embeddings (RoPE), FlashAttention, and KV-cache compression have expanded nominal context capacities into hundreds of thousands of tokens~\cite{dong2023bamboo}.
+
+Despite these expanded windows, empirical evaluations reveal critical operational trade-offs. Liu et al.~\cite{liu2024lost} demonstrated that language model performance follows a U-shaped accuracy curve: information located at the extreme beginning or end of a prompt is retrieved with high fidelity, whereas information embedded in the middle suffers dramatic retrieval degradation. Furthermore, processing extended contexts scales inference latency and financial cost linearly with sequence length. Consequently, in-context prompt stuffing remains an inefficient and unreliable mechanism for long-term memory maintenance.
+
+\subsection{Retrieval-Augmented Generation (RAG)}
+To overcome the fixed capacity of parametric model weights, Retrieval-Augmented Generation~\cite{lewis2020retrieval,guu2020realm} couples language models with external non-parametric document indices. In standard RAG systems, textual corpora are chunked, transformed into dense embeddings via neural encoders, and indexed in approximate nearest neighbor (ANN) vector stores. At inference time, the top-$k$ most similar chunks to an incoming query are prepended to the generator's prompt.
+
+While effective for static reference corpora (e.g., Wikipedia articles or technical documentation), RAG exhibits severe failure modes when applied to conversational agent state~\cite{stale2025benchmark}. Traditional vector retrievers are fundamentally \textit{atemporal}: they evaluate semantic similarity without understanding chronological progression, validity intervals, or factual supersession. When a conversation involves changing decisions, standard RAG retrieves conflicting passages simultaneously, leaving the generator vulnerable to hallucinations or stale default premises.
+
+\subsection{Memory in LLM-Based Agents}
+Autonomous agent frameworks integrate language models into iterative planning and execution loops~\cite{yao2022react,shinn2023reflexion}. In these loops, agents utilize intermediate scratchpads and reflection buffers to record action trajectories and tool outputs. As formalized by cognitive architectures like ACT* and human problem solving theories~\cite{newell1972human}, intelligent behavior requires distinguishing between transient working memory (immediate sensory and goal tokens) and persistent long-term storage (enduring knowledge and behavioral skills).
+
+In naive agent implementations, the scratchpad is simply appended to the active prompt. In long-horizon tasks (such as iterative software debugging or multi-day web navigation), the scratchpad quickly saturates the context window, causing catastrophic forgetting of initial instructions or inducing context-overflow crashes.
+
+\subsection{Persistent and Long-Term Agent Memory}
+To support multi-session continuity, recent literature has explored persistent external memory layers. Park et al.~\cite{park2023generative} introduced the \textit{Memory Stream}, an append-only sequence of natural language observations scored by recency, importance, and relevance, paired with periodic synthetic reflection. Packer et al.~\cite{packer2023memgpt} framed memory management through operating system principles in \textit{MemGPT}, treating the prompt context window as RAM and external databases as disk, managed through agent-invoked tool calls.
+
+Subsequent systems introduced cognitive decay curves~\cite{zhong2023memorybank}, multi-hop knowledge graphs~\cite{gutierrez2024hipporag,edge2024graphrag}, and multi-scope fact stores~\cite{deshmukh2024mem0}. However, as detailed in Section~\ref{sec:research_gap}, existing persistent systems rely predominantly on destructive in-place text replacement or uncurated vector indexing, leaving the problems of immutable versioning, automated supersession, and budget-aware context compilation unresolved.

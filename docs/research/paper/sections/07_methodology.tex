@@ -1,0 +1,79 @@
+\section{Experimental Methodology}
+\label{sec:methodology}
+
+Our experimental evaluation is designed to answer the central research question: \textit{Which components of ManiGit contribute to memory quality, historical correctness, contradiction handling, provenance, and budget-aware context selection?}
+
+\subsection{Research Hypotheses}
+We formalize five explicit research hypotheses:
+\begin{itemize}
+    \item \textbf{H1 (Budget Robustness):} ManiGit Full maintains comparable or higher factual recall and answer correctness relative to non-versioned baselines while consuming significantly fewer context tokens under constrained budgets.
+    \item \textbf{H2 (Historical Reconstruction):} ManiGit's versioned commit DAG enables reliable point-in-time state recovery of previously valid facts after supersession, where baselines fail.
+    \item \textbf{H3 (Contradiction Adjudication):} Automated contradiction supersession materially improves answer correctness on scenarios involving changing requirements.
+    \item \textbf{H4 (Confidence Awareness):} Confidence-calibrated classification improves agent robustness on ambiguous or speculative memory statements.
+    \item \textbf{H5 (Tier Selection Boost):} Tier-aware ranking improves factual recall under tight token budgets ($B=128$) when concise constraints compete with verbose summaries.
+\end{itemize}
+
+\subsection{Experimental Design and Matrix Cardinality}
+\begin{equation}
+\begin{aligned}
+\text{Total Trials} &= 22\text{ queries} \times 8\text{ methods} \times 5\text{ budgets} \\
+&= 880\text{ raw experimental trials}
+\end{aligned}
+\end{equation}
+Budgets evaluate the operational spectrum from constrained to unconstrained contexts:
+$$B \in \{128, 256, 512, 1024, 2048\}\text{ tokens}$$
+To ensure statistical validity, the unit of analysis is defined as the \textbf{query-budget pair} ($N = 22 \times 5 = 110$ evaluation pairs per method). We explicitly do not treat these 110 pairs as 110 independent conversations.
+
+\subsection{Comparative Baselines}
+We compare ManiGit Full against four established context management strategies:
+\begin{enumerate}
+    \item \textbf{Full History:} Ingests all preceding conversational turns into the prompt until budget $B$ is reached, truncating earlier turns if necessary. Represents the standard in-context memory paradigm.
+    \item \textbf{Sliding Window ($N=10$):} Retains strictly the most recent 10 conversational turns, discarding older history regardless of semantic significance.
+    \item \textbf{Running Summary:} Progressively compresses historical dialogue into an ongoing natural language summary preamble using recursive text aggregation.
+    \item \textbf{RAG-Style Retrieval:} Indexes raw message turns in an external lexical/vector store and retrieves top-$k$ segments matching query $q_t$ within budget $B$.
+\end{enumerate}
+
+\subsection{Controlled Ablation Variants}
+To isolate the causal contribution of individual ManiGit mechanisms, we implement three controlled ablations where exactly one mechanism is neutralized while holding all other components identical:
+\begin{enumerate}
+    \item \textbf{ManiGit (no\_contradiction):} Contradiction detection is disabled via an evaluation adapter. Superseded facts remain active in memory alongside new facts, directly measuring the vulnerability to ghost context.
+    \item \textbf{ManiGit (no\_confidence):} Confidence calibration is neutralized; candidate assertions are classified without confidence awareness, demonstrating the impact of premature archiving.
+    \item \textbf{ManiGit (no\_tier):} Memory tier multipliers ($T(m_i)$) are set to $1.0$ for all active tiers, removing preference for concise verbatim facts over verbose summaries during knapsack compilation.
+\end{enumerate}
+
+\subsection{Scenario Matrix}
+The benchmark comprises 11 multi-turn scenarios spanning distinct operational challenges:
+\begin{enumerate}
+    \item \textit{Stable Factual Memory:} Foundational user facts that remain constant across all turns.
+    \item \textit{Superseding Facts (PostgreSQL $\to$ MongoDB):} Technical migration where an early database selection is explicitly reversed in a later session.
+    \item \textit{Exact Technical Constraints:} Strict port numbers, timeout limits, and memory thresholds requiring exact verbatim recall.
+    \item \textit{Architectural Decisions:} High-level system design trade-offs.
+    \item \textit{Conversational Distractors:} Off-topic casual banter designed to trigger false-positive memory ingestion.
+    \item \textit{Duplicate Assertions:} Re-stated facts testing deduplication resilience.
+    \item \textit{Extended Dialogue Sequences:} Long conversations testing context accumulation.
+    \item \textit{Point-in-Time Reconstruction:} Retrospective queries asking what configuration was valid at an earlier commit hash $C_k$.
+    \item \textit{Branch Isolation:} Parallel exploratory branches with conflicting parameters.
+    \item \textit{Ambiguous Confidence:} Speculative statements (``We might scale to 10 nodes, but it is tentative'') probing confidence-calibrated intake.
+    \item \textit{Tier Selection Competition:} Tight budget ($B=128$) where a concise verbatim constraint competes for space against a verbose summary overview.
+\end{enumerate}
+Each scenario features 2 mutually exclusive queries (1 testing current active state, 1 testing historical or past state), yielding 22 queries total.
+
+\subsection{Evaluation Metrics}
+\begin{itemize}
+    \item \textbf{Fact Recall (\%):} Binary metric indicating whether all ground-truth target facts required for query $q_t$ are present in the compiled context $C_t$.
+    \item \textbf{Answer Correctness (\%):} Binary metric indicating whether the model adapter generates a semantically correct answer matching ground truth.
+    \item \textbf{Historical Recovery (\%):} Accuracy on retrospective queries evaluated against past commit states.
+    \item \textbf{Context Tokens:} Actual number of prompt tokens consumed by compiled context $C_t$.
+    \item \textbf{Budget Compliance (\%):} Percentage of trials satisfying the strict inequality $\sum L(m_i) \le B$.
+    \item \textbf{Latency (ms):} Wall-clock time required for memory classification, commit insertion, and context compilation.
+\end{itemize}
+
+\subsection{Statistical Methodology}
+For binary metrics (Fact Recall, Answer Correctness, Historical Recovery), we compute exact \textbf{95\% Wilson score confidence intervals} without continuity correction:
+\begin{equation}
+\tilde{p} = \frac{k + \frac{z^2}{2}}{n + z^2}, \quad \text{CI} = \tilde{p} \pm \frac{z}{n + z^2} \sqrt{\frac{k(n-k)}{n} + \frac{z^2}{4}}
+\end{equation}
+with $z = 1.96$ and $n = 110$. Continuous token metrics are reported as sample mean $\pm$ sample standard deviation ($\sigma$). For comparative ablation analysis, we report paired differences across identical $(q_t, B)$ evaluation pairs ($N = 110$ pairs per ablation).
+
+\subsection{Fairness and Isolation Controls}
+All 8 methods receive the exact same source conversations, identical queries, identical token budgets, and deterministic mock model adapters with fixed random seed 42. No method receives privileged hints or hardcoded answers. All trials run against isolated in-memory or temporary SQLite repositories, guaranteeing zero cross-trial data leakage.

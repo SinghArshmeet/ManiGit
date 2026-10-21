@@ -1,0 +1,15 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+As artificial intelligence agents transition from ephemeral chat interfaces to long-running, autonomous collaborators, the need for transparent, accurate, and bounded memory becomes paramount. Expanding the nominal context windows of frontier language models does not eliminate the necessity for memory management: raw conversational history quickly exhausts token budgets, introduces catastrophic ghost context when facts change, and lacks auditability.
+
+In this work, we introduced \textbf{ManiGit}, an open architecture that establishes transparent, versioned context memory for long-running AI agents. By decoupling persistent memory storage from active context compilation, ManiGit combines an immutable SQLite message archive, a Git-inspired Directed Acyclic Graph (DAG) commit substrate, a four-tier memory lifecycle state machine, automated contradiction supersession with auditable Why Reports, and a deterministic greedy knapsack context compiler.
+
+Through 880 controlled experimental trials across 11 multi-turn scenarios, 8 methods/variants, and 5 token budgets, we demonstrated that:
+\begin{enumerate}
+    \item ManiGit delivers \textbf{86.4\% factual recall} and \textbf{86.4\% answer correctness} while consuming \textbf{43.0\% fewer context tokens} than Full History, maintaining 100\% compliance with token budgets.
+    \item In our evaluated scenarios, ManiGit delivers \textbf{100\% accuracy on point-in-time historical reconstruction queries}, enabling retrospective audits where baseline RAG and sliding windows score 0\%.
+    \item Controlled ablations quantitatively isolate the essential contributions of individual mechanisms: contradiction supersession (+5.0\% overall correctness, preventing a 50\% collapse on database migration queries), calibrated confidence thresholds (+5.0\% recall, preventing a 100\% loss on speculative assertions), and tier-aware ranking (preventing a 100\% loss of verbatim constraints under tight token budgets of $B=128$).
+\end{enumerate}
+
+By replacing destructive in-place mutations with immutable versioned commits, and replacing unbounded prompt stuffing with mathematically formulated knapsack compilation, ManiGit provides a grounded, reproducible foundation for the next generation of reliable, auditable, and long-horizon autonomous agents. All experimental configurations, evaluation harnesses, and raw benchmark trial artifacts are systematically structured to facilitate independent verification and research reproducibility.
