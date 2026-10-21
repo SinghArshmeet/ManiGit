@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ManiGit — Research Workstation & Context Memory DAG</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="workstation-body">
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <div class="brand">
+        <span class="brand-icon">🌿</span>
+        <div class="brand-text">
+          <h1 class="brand-title">MANIGIT</h1>
+          <span class="brand-tagline">Transparent, Versioned Context Memory for Long-Running AI Agents</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live System Indicators -->
+    <div class="top-bar-center">
+      <div class="indicator-chip" title="Repository connection status">
+        <span class="status-dot green"></span>
+        <span class="chip-label">Repo:</span>
+        <span id="repo-status-val" class="chip-val">SQLite (Verified)</span>
+      </div>
+      <div class="indicator-chip" title="Active Branch">
+        <span class="chip-label">Branch:</span>
+        <span id="active-branch-chip" class="chip-val mono">main</span>
+      </div>
+      <div class="indicator-chip" title="Current HEAD Commit">
+        <span class="chip-label">HEAD:</span>
+        <span id="active-head-chip" class="chip-val mono">loading...</span>
+      </div>
+      <div class="indicator-chip" title="Model Adapter">
+        <span class="chip-label">Model:</span>
+        <span id="model-adapter-chip" class="chip-val">Deterministic Mock</span>
+      </div>
+    </div>
+
+    <!-- Actions & Controls -->
+    <div class="top-bar-right">
+      <div class="branch-selector-wrapper">
+        <label for="branch-select" class="sr-only">Switch Branch</label>
+        <select id="branch-select" class="select-sm" title="Switch Branch"></select>
+        <button id="new-branch-btn" class="btn btn-secondary btn-xs" title="Create New Branch">+ Branch</button>
+      </div>
+      <button id="refresh-btn" class="btn btn-secondary btn-sm" title="Reload repository state">🔄 Refresh</button>
+      <button id="new-session-btn" class="btn btn-secondary btn-sm" title="Reset chat session">⚡ New Session</button>
+      <button id="return-head-top-btn" class="btn btn-primary btn-sm hidden" title="Return to active HEAD state">Return to HEAD</button>
+    </div>
+  </header>
+
+  <!-- Prominent Historical Inspection Read-Only Banner -->
+  <div id="historical-banner" class="historical-banner hidden">
+    <div class="banner-content">
+      <span class="banner-icon">⚠️</span>
+      <div class="banner-text">
+        <strong>HISTORICAL STATE (READ-ONLY)</strong> — Viewing reconstructed memory at commit
+        <code id="inspecting-commit-id" class="mono-badge"></code>
+        <span class="banner-meta" id="inspecting-commit-meta"></span>
+      </div>
+    </div>
+    <div class="banner-actions">
+      <button id="return-head-btn" class="btn btn-primary btn-sm">Return to HEAD</button>
+    </div>
+  </div>
+
+  <!-- Main 3-Column Workstation Grid -->
+  <div class="workstation-grid">
+
+    <!-- Column 1: Agent Dialogue / Chat -->
+    <section class="panel chat-panel" aria-labelledby="chat-panel-heading">
+      <div class="panel-header">
+        <div class="header-title-group">
+          <span class="panel-icon">💬</span>
+          <h2 id="chat-panel-heading" class="panel-title">Agent Dialogue</h2>
+        </div>
+        <div class="budget-control-group">
+          <label for="token-budget-input">Context Budget:</label>
+          <select id="token-budget-input" class="select-xs">
+            <option value="128">128 tok (Tight)</option>
+            <option value="256">256 tok</option>
+            <option value="512">512 tok</option>
+            <option value="1024" selected>1024 tok</option>
+            <option value="2048">2048 tok</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Quick Demo Preset Pills (PostgreSQL -> MongoDB Flow) -->
+      <div class="demo-pills-bar">
+        <span class="pills-label">Hero Demo:</span>
+        <button class="pill-btn" data-prompt="The backend database is PostgreSQL.">1. Set PostgreSQL</button>
+        <button class="pill-btn" data-prompt="We decided to migrate the backend to MongoDB.">2. Migrate MongoDB</button>
+        <button class="pill-btn" data-prompt="What database are we using now?">3. Query DB</button>
+      </div>
+
+      <!-- Chat History -->
+      <div id="chat-messages" class="chat-messages-container">
+        <div class="message system-msg">
+          <div class="msg-content">
+            <strong>ManiGit Research Workstation Ready.</strong><br>
+            Every user prompt creates an audited, immutable commit in the versioned memory graph.
+            Use the hero demo buttons above or enter instructions below.
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="chat-form" class="chat-form">
+        <div class="input-wrapper">
+          <input type="text" id="chat-input" placeholder="Enter instructions, constraints, or decisions..." autocomplete="off" required>
+          <button type="submit" id="send-btn" class="btn btn-primary btn-send">Send</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Column 2: Visual Commit Graph DAG -->
+    <section class="panel graph-panel" aria-labelledby="graph-panel-heading">
+      <div class="panel-header">
+        <div class="header-title-group">
+          <span class="panel-icon">🌳</span>
+          <h2 id="graph-panel-heading" class="panel-title">Commit Graph (DAG)</h2>
+        </div>
+        <span id="commit-count-badge" class="count-badge">0 commits</span>
+      </div>
+
+      <div class="graph-toolbar">
+        <span class="toolbar-hint">Click any node to reconstruct historical memory state (read-only).</span>
+      </div>
+
+      <div id="commit-graph-viewport" class="commit-graph-viewport">
+        <!-- SVG Commit Graph rendered here -->
+        <svg id="commit-dag-svg" class="commit-dag-svg"></svg>
+        <div id="commit-nodes-layer" class="commit-nodes-layer">
+          <!-- HTML Cards positioned along SVG tracks -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 3: Memory Inspector -->
+    <section class="panel memory-panel" aria-labelledby="memory-panel-heading">
+      <div class="panel-header">
+        <div class="header-title-group">
+          <span class="panel-icon">🧠</span>
+          <h2 id="memory-panel-heading" class="panel-title">Active Memories</h2>
+        </div>
+        <span id="memory-count-badge" class="count-badge">0 units</span>
+      </div>
+
+      <!-- Supersession / Contradiction Status Banner (Dynamic) -->
+      <div id="superseded-alert-box" class="superseded-alert-box hidden">
+        <span class="alert-icon">⚡</span>
+        <div class="alert-text" id="superseded-alert-text"></div>
+      </div>
+
+      <div id="memory-list" class="memory-list-container">
+        <!-- Dynamic memory cards rendered here -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom Diagnostics & Research Panel -->
+  <footer class="diagnostics-panel">
+    <div class="panel-tabs-bar">
+      <div class="tabs-list" role="tablist">
+        <button class="tab-btn active" data-tab="tab-context" role="tab" id="tab-btn-context">
+          🔍 Context Preview
+        </button>
+        <button class="tab-btn" data-tab="tab-why" role="tab" id="tab-btn-why">
+          💡 Why Report (Explainability)
+        </button>
+        <button class="tab-btn" data-tab="tab-benchmarks" role="tab" id="tab-btn-benchmarks">
+          📊 Benchmark Dashboard
+        </button>
+        <button class="tab-btn" data-tab="tab-provenance" role="tab" id="tab-btn-provenance">
+          🔗 Provenance Traceability
+        </button>
+      </div>
+
+      <!-- Quick Context Budget Meter (Always Visible) -->
+      <div class="header-budget-meter" id="quick-budget-meter" title="Context Token Budget Utilization">
+        <div class="meter-text">
+          <span class="meter-title">Context Budget:</span>
+          <span id="meter-tokens-val" class="meter-val">0 / 1024</span>
+          <span id="meter-percent-val" class="meter-pct">0.0%</span>
+        </div>
+        <div class="meter-track">
+          <div id="meter-fill" class="meter-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-tab-content">
+
+      <!-- Tab 1: Context Preview -->
+      <div id="tab-context" class="tab-pane active" role="tabpanel">
+        <div class="preview-layout">
+          <div class="preview-controls-row">
+            <div class="preview-input-group">
+              <label for="preview-query-input">Diagnostic Query:</label>
+              <input type="text" id="preview-query-input" placeholder="e.g. What database are we using?" class="text-input-sm">
+            </div>
+            <div class="preview-budget-group">
+              <label for="preview-budget-select">Test Budget:</label>
+              <select id="preview-budget-select" class="select-xs">
+                <option value="128">128 tokens</option>
+                <option value="256">256 tokens</option>
+                <option value="512">512 tokens</option>
+                <option value="1024" selected>1024 tokens</option>
+                <option value="2048">2048 tokens</option>
+              </select>
+            </div>
+            <button id="run-preview-btn" class="btn btn-secondary btn-sm">Compile Context</button>
+          </div>
+
+          <div id="context-preview-results" class="preview-results-wrapper">
+            <p class="placeholder-text">Enter a query above to inspect exact memory selection, relevance scores, and exclusion reasons under the budget constraint.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Why Report (Explainability) -->
+      <div id="tab-why" class="tab-pane" role="tabpanel">
+        <div id="why-report-container" class="why-report-wrapper">
+          <p class="placeholder-text">Select any commit node in the DAG to inspect the audited Why Report explaining that memory transition.</p>
+        </div>
+      </div>
+
+      <!-- Tab 3: Benchmark Dashboard -->
+      <div id="tab-benchmarks" class="tab-pane" role="tabpanel">
+        <div class="benchmark-dashboard-wrapper">
+          <div class="benchmark-controls-bar">
+            <div class="benchmark-mode-toggle">
+              <button id="bench-mode-aggregate" class="btn-toggle active">Across All Budgets (Aggregate)</button>
+              <button id="bench-mode-budget" class="btn-toggle">Budget-Specific (B=128, 256, ...)</button>
+            </div>
+            <div id="bench-budget-selector-group" class="benchmark-budget-selector hidden">
+              <label for="bench-budget-select">Select Budget:</label>
+              <select id="bench-budget-select" class="select-xs">
+                <option value="128" selected>B = 128 (Hard Bound)</option>
+                <option value="256">B = 256</option>
+                <option value="512">B = 512</option>
+                <option value="1024">B = 1024</option>
+                <option value="2048">B = 2048</option>
+              </select>
+            </div>
+            <span class="benchmark-source-note">Source: <code>exp_canonical_run_001.json</code> (500 empirical trials)</span>
+          </div>
+
+          <div id="benchmark-summary-container" class="benchmark-tables-wrapper">
+            <!-- Dynamic benchmark tables rendered here -->
+          </div>
+
+          <!-- Research Insights Section -->
+          <div class="research-insights-box">
+            <h4>Research Insights & Empirical Observations</h4>
+            <ul>
+              <li><strong>Low-Budget Context Efficiency (B=128):</strong> Under constrained token windows, ManiGit achieves 85.0% fact recall consuming an average of 79.2 context tokens (bounded ≤ 128), outperforming naive Full History (75.0% recall, 109.9 tokens) and Sliding Window (70.0% recall, 116.9 tokens).</li>
+              <li><strong>Historical State Recovery:</strong> Explicit commit-targeted compilation recovers superseded facts (e.g. PostgreSQL) with 100% recall consuming only 18.0 tokens, with 0% leakage of subsequent state.</li>
+              <li><strong>Contradiction Isolation:</strong> Superseded facts are automatically retired to TOMBSTONE tier without destroying provenance history, achieving 100% contradiction accuracy on canonical benchmarks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Provenance Traceability -->
+      <div id="tab-provenance" class="tab-pane" role="tabpanel">
+        <div id="provenance-container" class="provenance-wrapper">
+          <p class="placeholder-text">Click on any memory card in the Memory Inspector to trace its end-to-end lineage: Memory Unit → Source Messages → Classification Decisions → Commit DAG → Current / Historical State.</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Persistent Status Strip -->
+  <div class="persistent-status-strip">
+    <div class="status-strip-item">
+      <span class="strip-label">Branch:</span>
+      <span id="strip-branch" class="strip-val mono">main</span>
+    </div>
+    <div class="status-strip-item">
+      <span class="strip-label">HEAD:</span>
+      <span id="strip-head" class="strip-val mono">—</span>
+    </div>
+    <div class="status-strip-item">
+      <span class="strip-label">Budget:</span>
+      <span id="strip-budget" class="strip-val">1024 tok</span>
+    </div>
+    <div class="status-strip-item">
+      <span class="strip-label">Context Tokens:</span>
+      <span id="strip-context-tokens" class="strip-val">0 tok</span>
+    </div>
+    <div class="status-strip-item">
+      <span class="strip-label">Active Memories:</span>
+      <span id="strip-mem-count" class="strip-val">0</span>
+    </div>
+    <div class="status-strip-item">
+      <span class="strip-label">Status:</span>
+      <span id="strip-status" class="strip-val green">Ready</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

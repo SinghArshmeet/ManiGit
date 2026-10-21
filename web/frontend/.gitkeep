@@ -1,0 +1,2 @@
+# Directory reserved for ManiGit Web UI frontend (visualization of commit graph, branch views, tier-colored context).
+# The frontend connects to the backend API and does not directly access storage.
