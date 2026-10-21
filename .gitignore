@@ -50,7 +50,7 @@ data/database/*
 data/backups/*
 !data/backups/.gitkeep
 !data/processed/benchmarks/**
-!data/processed/research/**
+
 
 
 # SQLite database files
