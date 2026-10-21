@@ -1,0 +1,29 @@
+[
+  {
+    "ablation": "ManiGit (no_contradiction)",
+    "fact_recall_delta": 0.0,
+    "answer_correctness_delta": -0.05,
+    "context_token_delta": 0.55,
+    "contradiction_accuracy_delta": -0.05,
+    "degraded_trials_count": 5,
+    "total_pairs_evaluated": 110
+  },
+  {
+    "ablation": "ManiGit (no_confidence)",
+    "fact_recall_delta": -0.05,
+    "answer_correctness_delta": -0.05,
+    "context_token_delta": -0.95,
+    "contradiction_accuracy_delta": -0.05,
+    "degraded_trials_count": 5,
+    "total_pairs_evaluated": 110
+  },
+  {
+    "ablation": "ManiGit (no_tier)",
+    "fact_recall_delta": -0.01,
+    "answer_correctness_delta": -0.01,
+    "context_token_delta": 0.85,
+    "contradiction_accuracy_delta": -0.01,
+    "degraded_trials_count": 1,
+    "total_pairs_evaluated": 110
+  }
+]

@@ -1,0 +1,845 @@
+{
+  "scenario_id": "scenario_h_long_100",
+  "name": "Long Conversation Scenario (100 turns)",
+  "category": "long_conversation",
+  "description": "Evaluates retention of early, middle, and late critical facts across 100 conversational turns.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "The infrastructure provider is AWS with region eu-west-1.",
+      "is_distractor": false,
+      "contains_fact": "infrastructure provider is AWS region eu-west-1",
+      "fact_key": "infra_region"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Configured infrastructure on AWS in eu-west-1.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "[Turn 2] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "[Turn 3] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "[Turn 4] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "[Turn 5] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 6,
+      "role": "user",
+      "content": "[Turn 6] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 7,
+      "role": "assistant",
+      "content": "[Turn 7] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 8,
+      "role": "user",
+      "content": "[Turn 8] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 9,
+      "role": "assistant",
+      "content": "[Turn 9] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 10,
+      "role": "user",
+      "content": "[Turn 10] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 11,
+      "role": "assistant",
+      "content": "[Turn 11] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 12,
+      "role": "user",
+      "content": "[Turn 12] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 13,
+      "role": "assistant",
+      "content": "[Turn 13] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 14,
+      "role": "user",
+      "content": "[Turn 14] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 15,
+      "role": "assistant",
+      "content": "[Turn 15] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 16,
+      "role": "user",
+      "content": "[Turn 16] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 17,
+      "role": "assistant",
+      "content": "[Turn 17] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 18,
+      "role": "user",
+      "content": "[Turn 18] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 19,
+      "role": "assistant",
+      "content": "[Turn 19] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 20,
+      "role": "user",
+      "content": "[Turn 20] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 21,
+      "role": "assistant",
+      "content": "[Turn 21] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 22,
+      "role": "user",
+      "content": "[Turn 22] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 23,
+      "role": "assistant",
+      "content": "[Turn 23] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 24,
+      "role": "user",
+      "content": "[Turn 24] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 25,
+      "role": "assistant",
+      "content": "[Turn 25] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 26,
+      "role": "user",
+      "content": "[Turn 26] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 27,
+      "role": "assistant",
+      "content": "[Turn 27] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 28,
+      "role": "user",
+      "content": "[Turn 28] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 29,
+      "role": "assistant",
+      "content": "[Turn 29] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 30,
+      "role": "user",
+      "content": "[Turn 30] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 31,
+      "role": "assistant",
+      "content": "[Turn 31] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 32,
+      "role": "user",
+      "content": "[Turn 32] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 33,
+      "role": "assistant",
+      "content": "[Turn 33] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 34,
+      "role": "user",
+      "content": "[Turn 34] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 35,
+      "role": "assistant",
+      "content": "[Turn 35] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 36,
+      "role": "user",
+      "content": "[Turn 36] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 37,
+      "role": "assistant",
+      "content": "[Turn 37] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 38,
+      "role": "user",
+      "content": "[Turn 38] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 39,
+      "role": "assistant",
+      "content": "[Turn 39] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 40,
+      "role": "user",
+      "content": "[Turn 40] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 41,
+      "role": "assistant",
+      "content": "[Turn 41] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 42,
+      "role": "user",
+      "content": "[Turn 42] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 43,
+      "role": "assistant",
+      "content": "[Turn 43] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 44,
+      "role": "user",
+      "content": "[Turn 44] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 45,
+      "role": "assistant",
+      "content": "[Turn 45] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 46,
+      "role": "user",
+      "content": "[Turn 46] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 47,
+      "role": "assistant",
+      "content": "[Turn 47] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 48,
+      "role": "user",
+      "content": "[Turn 48] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 49,
+      "role": "assistant",
+      "content": "[Turn 49] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 50,
+      "role": "user",
+      "content": "The primary encryption key identifier is KMS-KEY-ALPHA-77.",
+      "is_distractor": false,
+      "contains_fact": "encryption key identifier is KMS-KEY-ALPHA-77",
+      "fact_key": "kms_key"
+    },
+    {
+      "turn_index": 51,
+      "role": "assistant",
+      "content": "Primary encryption key KMS-KEY-ALPHA-77 registered.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 52,
+      "role": "user",
+      "content": "[Turn 52] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 53,
+      "role": "assistant",
+      "content": "[Turn 53] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 54,
+      "role": "user",
+      "content": "[Turn 54] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 55,
+      "role": "assistant",
+      "content": "[Turn 55] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 56,
+      "role": "user",
+      "content": "[Turn 56] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 57,
+      "role": "assistant",
+      "content": "[Turn 57] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 58,
+      "role": "user",
+      "content": "[Turn 58] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 59,
+      "role": "assistant",
+      "content": "[Turn 59] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 60,
+      "role": "user",
+      "content": "[Turn 60] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 61,
+      "role": "assistant",
+      "content": "[Turn 61] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 62,
+      "role": "user",
+      "content": "[Turn 62] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 63,
+      "role": "assistant",
+      "content": "[Turn 63] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 64,
+      "role": "user",
+      "content": "[Turn 64] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 65,
+      "role": "assistant",
+      "content": "[Turn 65] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 66,
+      "role": "user",
+      "content": "[Turn 66] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 67,
+      "role": "assistant",
+      "content": "[Turn 67] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 68,
+      "role": "user",
+      "content": "[Turn 68] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 69,
+      "role": "assistant",
+      "content": "[Turn 69] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 70,
+      "role": "user",
+      "content": "[Turn 70] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 71,
+      "role": "assistant",
+      "content": "[Turn 71] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 72,
+      "role": "user",
+      "content": "[Turn 72] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 73,
+      "role": "assistant",
+      "content": "[Turn 73] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 74,
+      "role": "user",
+      "content": "[Turn 74] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 75,
+      "role": "assistant",
+      "content": "[Turn 75] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 76,
+      "role": "user",
+      "content": "[Turn 76] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 77,
+      "role": "assistant",
+      "content": "[Turn 77] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 78,
+      "role": "user",
+      "content": "[Turn 78] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 79,
+      "role": "assistant",
+      "content": "[Turn 79] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 80,
+      "role": "user",
+      "content": "[Turn 80] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 81,
+      "role": "assistant",
+      "content": "[Turn 81] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 82,
+      "role": "user",
+      "content": "[Turn 82] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 83,
+      "role": "assistant",
+      "content": "[Turn 83] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 84,
+      "role": "user",
+      "content": "[Turn 84] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 85,
+      "role": "assistant",
+      "content": "[Turn 85] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 86,
+      "role": "user",
+      "content": "[Turn 86] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 87,
+      "role": "assistant",
+      "content": "[Turn 87] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 88,
+      "role": "user",
+      "content": "[Turn 88] Checking system memory utilization across nodes.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 89,
+      "role": "assistant",
+      "content": "[Turn 89] Memory utilization is nominal at 42%.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 90,
+      "role": "user",
+      "content": "[Turn 90] Investigating latency spikes in the message queue.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 91,
+      "role": "assistant",
+      "content": "[Turn 91] Queue latency is steady at 12ms.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 92,
+      "role": "user",
+      "content": "[Turn 92] Auditing user permissions for the administrative console.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 93,
+      "role": "assistant",
+      "content": "[Turn 93] Admin permissions verified against RBAC matrix.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 94,
+      "role": "user",
+      "content": "[Turn 94] Testing backup snapshot creation and restore procedure.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 95,
+      "role": "assistant",
+      "content": "[Turn 95] Snapshot restored successfully to sandbox.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 96,
+      "role": "user",
+      "content": "The production deployment freeze starts on 2026-12-15.",
+      "is_distractor": false,
+      "contains_fact": "deployment freeze starts on 2026-12-15",
+      "fact_key": "freeze_date"
+    },
+    {
+      "turn_index": 97,
+      "role": "assistant",
+      "content": "Deployment freeze scheduled for 2026-12-15.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_long_early_region",
+      "query": "What AWS region is our infrastructure hosted in?",
+      "expected_answer": "eu-west-1",
+      "acceptable_alternatives": [
+        "AWS region eu-west-1",
+        "eu-west-1"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "infra_region",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "query_id": "q_long_mid_kms",
+      "query": "What is the primary KMS encryption key identifier?",
+      "expected_answer": "KMS-KEY-ALPHA-77",
+      "acceptable_alternatives": [
+        "KMS-KEY-ALPHA-77"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "kms_key",
+      "relevant_turn_indices": [
+        50,
+        51
+      ]
+    },
+    {
+      "query_id": "q_long_late_freeze",
+      "query": "When does the production deployment freeze start?",
+      "expected_answer": "2026-12-15",
+      "acceptable_alternatives": [
+        "2026-12-15",
+        "December 15, 2026"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "freeze_date",
+      "relevant_turn_indices": [
+        96,
+        97
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 98,
+    "seed": 42
+  }
+}

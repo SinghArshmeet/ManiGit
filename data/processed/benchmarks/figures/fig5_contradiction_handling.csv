@@ -1,0 +1,9 @@
+method,contradiction_accuracy,ci_lower,ci_upper,total_trials
+Full History,0.8364,0.7561,0.8939,110
+ManiGit (full),0.8636,0.7871,0.9156,110
+ManiGit (no_confidence),0.8182,0.7358,0.8791,110
+ManiGit (no_contradiction),0.8182,0.7358,0.8791,110
+ManiGit (no_tier),0.8545,0.7767,0.9084,110
+RAG-Style (Raw Messages),0.9545,0.898,0.9804,110
+Running Summary,0.9091,0.8407,0.9499,110
+Sliding Window (N=10),0.7636,0.6762,0.8333,110

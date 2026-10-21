@@ -1,0 +1,158 @@
+{
+  "scenario_id": "scenario_g_duplicates",
+  "name": "Duplicate Information Scenario",
+  "category": "duplicates",
+  "description": "Evaluates whether repeated statements bloat context or are efficiently deduplicated.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "Remember that the default retention window is strictly 90 days. (Reminder 1)",
+      "is_distractor": false,
+      "contains_fact": "retention window is strictly 90 days",
+      "fact_key": "retention_window"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Understood. Retention window is 90 days. Acknowledged iteration 1.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "Proceed with regular backlog tasks for cycle 1.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "Backlog cycle 1 tasks running.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "Remember that the default retention window is strictly 90 days. (Reminder 2)",
+      "is_distractor": false,
+      "contains_fact": "retention window is strictly 90 days",
+      "fact_key": "retention_window"
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "Understood. Retention window is 90 days. Acknowledged iteration 2.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 6,
+      "role": "user",
+      "content": "Proceed with regular backlog tasks for cycle 2.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 7,
+      "role": "assistant",
+      "content": "Backlog cycle 2 tasks running.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 8,
+      "role": "user",
+      "content": "Remember that the default retention window is strictly 90 days. (Reminder 3)",
+      "is_distractor": false,
+      "contains_fact": "retention window is strictly 90 days",
+      "fact_key": "retention_window"
+    },
+    {
+      "turn_index": 9,
+      "role": "assistant",
+      "content": "Understood. Retention window is 90 days. Acknowledged iteration 3.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 10,
+      "role": "user",
+      "content": "Proceed with regular backlog tasks for cycle 3.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 11,
+      "role": "assistant",
+      "content": "Backlog cycle 3 tasks running.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 12,
+      "role": "user",
+      "content": "Remember that the default retention window is strictly 90 days. (Reminder 4)",
+      "is_distractor": false,
+      "contains_fact": "retention window is strictly 90 days",
+      "fact_key": "retention_window"
+    },
+    {
+      "turn_index": 13,
+      "role": "assistant",
+      "content": "Understood. Retention window is 90 days. Acknowledged iteration 4.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 14,
+      "role": "user",
+      "content": "Proceed with regular backlog tasks for cycle 4.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 15,
+      "role": "assistant",
+      "content": "Backlog cycle 4 tasks running.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_duplicate_retention",
+      "query": "What is the default data retention window?",
+      "expected_answer": "90 days",
+      "acceptable_alternatives": [
+        "90 days retention",
+        "90-day"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "retention_window",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 16,
+    "repeat_count": 4
+  }
+}

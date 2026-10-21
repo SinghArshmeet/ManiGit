@@ -1,0 +1,58 @@
+[
+  {
+    "method": "Full History",
+    "contradiction_accuracy": 0.8364,
+    "ci_lower": 0.7561,
+    "ci_upper": 0.8939,
+    "total_trials": 110
+  },
+  {
+    "method": "ManiGit (full)",
+    "contradiction_accuracy": 0.8636,
+    "ci_lower": 0.7871,
+    "ci_upper": 0.9156,
+    "total_trials": 110
+  },
+  {
+    "method": "ManiGit (no_confidence)",
+    "contradiction_accuracy": 0.8182,
+    "ci_lower": 0.7358,
+    "ci_upper": 0.8791,
+    "total_trials": 110
+  },
+  {
+    "method": "ManiGit (no_contradiction)",
+    "contradiction_accuracy": 0.8182,
+    "ci_lower": 0.7358,
+    "ci_upper": 0.8791,
+    "total_trials": 110
+  },
+  {
+    "method": "ManiGit (no_tier)",
+    "contradiction_accuracy": 0.8545,
+    "ci_lower": 0.7767,
+    "ci_upper": 0.9084,
+    "total_trials": 110
+  },
+  {
+    "method": "RAG-Style (Raw Messages)",
+    "contradiction_accuracy": 0.9545,
+    "ci_lower": 0.898,
+    "ci_upper": 0.9804,
+    "total_trials": 110
+  },
+  {
+    "method": "Running Summary",
+    "contradiction_accuracy": 0.9091,
+    "ci_lower": 0.8407,
+    "ci_upper": 0.9499,
+    "total_trials": 110
+  },
+  {
+    "method": "Sliding Window (N=10)",
+    "contradiction_accuracy": 0.7636,
+    "ci_lower": 0.6762,
+    "ci_upper": 0.8333,
+    "total_trials": 110
+  }
+]

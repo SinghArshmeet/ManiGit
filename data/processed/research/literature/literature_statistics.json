@@ -1,0 +1,51 @@
+{
+  "corpus_size": 33,
+  "date_range": "1972 - 2026",
+  "category_distribution": {
+    "Classical AI & Cognitive Architecture": 1,
+    "Epistemology & Logic Foundations": 1,
+    "Neural Memory Architectures": 3,
+    "Transformer Foundations": 2,
+    "Retrieval-Augmented Generation": 3,
+    "Context Dynamics & Long-Context LLMs": 2,
+    "Evaluation & Benchmarks": 5,
+    "Agent Memory Architectures": 8,
+    "Surveys & Taxonomies": 4,
+    "Counterexample & Versioned Memory": 2,
+    "Contradiction & Concurrency": 2
+  },
+  "year_distribution": {
+    "1972": 1,
+    "1985": 1,
+    "2014": 2,
+    "2016": 1,
+    "2017": 1,
+    "2020": 3,
+    "2024": 9,
+    "2023": 7,
+    "2025": 7,
+    "2026": 1
+  },
+  "feature_prevalence": {
+    "explicit_versioning": {
+      "count": 11,
+      "percentage": 33.3
+    },
+    "source_provenance": {
+      "count": 23,
+      "percentage": 69.7
+    },
+    "contradiction_handling": {
+      "count": 29,
+      "percentage": 87.9
+    },
+    "historical_reconstruction": {
+      "count": 17,
+      "percentage": 51.5
+    },
+    "explicit_context_budget": {
+      "count": 32,
+      "percentage": 97.0
+    }
+  }
+}

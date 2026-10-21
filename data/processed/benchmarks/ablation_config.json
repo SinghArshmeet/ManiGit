@@ -1,0 +1,43 @@
+{
+  "experiment_id": "exp_ablation_run_001",
+  "seed": 42,
+  "methods": [
+    "full_history",
+    "sliding_window",
+    "summary",
+    "rag_style",
+    "manigit"
+  ],
+  "ablations": [
+    "full",
+    "no_contradiction",
+    "no_confidence",
+    "no_tier"
+  ],
+  "scenarios": [
+    "stable_facts",
+    "superseding_facts",
+    "exact_constraints",
+    "decisions",
+    "technical_facts",
+    "distractors",
+    "duplicates",
+    "long_50",
+    "long_100",
+    "ambiguous_confidence",
+    "tier_competition"
+  ],
+  "budgets": [
+    128,
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "model_adapter": "DeterministicMockModelAdapter (eval-calibrated)",
+  "evaluation_version": "8.0.0",
+  "timestamp": "2026-10-19T23:00:01.741582+00:00",
+  "python_version": "3.11.15",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "git_commit": "unknown"
+}

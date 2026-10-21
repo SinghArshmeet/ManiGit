@@ -1,0 +1,476 @@
+{
+  "scenario_id": "scenario_f_distractors",
+  "name": "Distractor-Heavy Conversation Scenario",
+  "category": "distractors",
+  "description": "Evaluates needle-in-a-haystack recall when critical facts are buried in conversational noise.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "The internal caching service port is 6379.",
+      "is_distractor": false,
+      "contains_fact": "caching service port is 6379",
+      "fact_key": "cache_port"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Internal Redis cache port confirmed at 6379.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "[Turn 2] Good morning! How is the build server looking today?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "[Turn 3] Good morning. The build server is operational.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "[Turn 4] Thanks for the update.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "[Turn 5] You're very welcome.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 6,
+      "role": "user",
+      "content": "[Turn 6] Let me grab a quick coffee before we review the log files.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 7,
+      "role": "assistant",
+      "content": "[Turn 7] Take your time. I am ready when you are.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 8,
+      "role": "user",
+      "content": "[Turn 8] Looks like the weather outside is quite cloudy today.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 9,
+      "role": "assistant",
+      "content": "[Turn 9] Indeed, pleasant weather for programming.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 10,
+      "role": "user",
+      "content": "[Turn 10] Could you check if the formatting linter ran cleanly?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 11,
+      "role": "assistant",
+      "content": "[Turn 11] The linter reported no warnings.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 12,
+      "role": "user",
+      "content": "[Turn 12] Great, thanks.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 13,
+      "role": "assistant",
+      "content": "[Turn 13] Happy to help.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 14,
+      "role": "user",
+      "content": "[Turn 14] Let's see what tickets are in the current sprint.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 15,
+      "role": "assistant",
+      "content": "[Turn 15] Sprint backlog contains 12 open tickets.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 16,
+      "role": "user",
+      "content": "[Turn 16] Sounds good. Let's keep moving forward.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 17,
+      "role": "assistant",
+      "content": "[Turn 17] Proceeding as planned.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 18,
+      "role": "user",
+      "content": "[Turn 18] Did you see the latest commit message?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 19,
+      "role": "assistant",
+      "content": "[Turn 19] Yes, the commit message was clear and concise.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 20,
+      "role": "user",
+      "content": "[Turn 20] Awesome.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 21,
+      "role": "assistant",
+      "content": "[Turn 21] Glad to hear.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 22,
+      "role": "user",
+      "content": "[Turn 22] Good morning! How is the build server looking today?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 23,
+      "role": "assistant",
+      "content": "[Turn 23] Good morning. The build server is operational.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 24,
+      "role": "user",
+      "content": "[Turn 24] Thanks for the update.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 25,
+      "role": "assistant",
+      "content": "[Turn 25] You're very welcome.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 26,
+      "role": "user",
+      "content": "[Turn 26] Let me grab a quick coffee before we review the log files.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 27,
+      "role": "assistant",
+      "content": "[Turn 27] Take your time. I am ready when you are.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 28,
+      "role": "user",
+      "content": "[Turn 28] Looks like the weather outside is quite cloudy today.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 29,
+      "role": "assistant",
+      "content": "[Turn 29] Indeed, pleasant weather for programming.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 30,
+      "role": "user",
+      "content": "[Turn 30] Could you check if the formatting linter ran cleanly?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 31,
+      "role": "assistant",
+      "content": "[Turn 31] The linter reported no warnings.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 32,
+      "role": "user",
+      "content": "[Turn 32] Great, thanks.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 33,
+      "role": "assistant",
+      "content": "[Turn 33] Happy to help.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 34,
+      "role": "user",
+      "content": "[Turn 34] Let's see what tickets are in the current sprint.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 35,
+      "role": "assistant",
+      "content": "[Turn 35] Sprint backlog contains 12 open tickets.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 36,
+      "role": "user",
+      "content": "[Turn 36] Sounds good. Let's keep moving forward.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 37,
+      "role": "assistant",
+      "content": "[Turn 37] Proceeding as planned.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 38,
+      "role": "user",
+      "content": "[Turn 38] Did you see the latest commit message?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 39,
+      "role": "assistant",
+      "content": "[Turn 39] Yes, the commit message was clear and concise.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 40,
+      "role": "user",
+      "content": "[Turn 40] Awesome.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 41,
+      "role": "assistant",
+      "content": "[Turn 41] Glad to hear.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 42,
+      "role": "user",
+      "content": "[Turn 42] Good morning! How is the build server looking today?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 43,
+      "role": "assistant",
+      "content": "[Turn 43] Good morning. The build server is operational.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 44,
+      "role": "user",
+      "content": "[Turn 44] Thanks for the update.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 45,
+      "role": "assistant",
+      "content": "[Turn 45] You're very welcome.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 46,
+      "role": "user",
+      "content": "[Turn 46] Let me grab a quick coffee before we review the log files.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 47,
+      "role": "assistant",
+      "content": "[Turn 47] Take your time. I am ready when you are.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 48,
+      "role": "user",
+      "content": "[Turn 48] Looks like the weather outside is quite cloudy today.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 49,
+      "role": "assistant",
+      "content": "[Turn 49] Indeed, pleasant weather for programming.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 50,
+      "role": "user",
+      "content": "[Turn 50] Could you check if the formatting linter ran cleanly?",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 51,
+      "role": "assistant",
+      "content": "[Turn 51] The linter reported no warnings.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 52,
+      "role": "user",
+      "content": "The staging deployment target cluster is us-central1-k8s-prod.",
+      "is_distractor": false,
+      "contains_fact": "target cluster is us-central1-k8s-prod",
+      "fact_key": "deploy_cluster"
+    },
+    {
+      "turn_index": 53,
+      "role": "assistant",
+      "content": "Cluster target us-central1-k8s-prod saved for staging deployment.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_distractor_cache",
+      "query": "What port does the internal caching service use?",
+      "expected_answer": "6379",
+      "acceptable_alternatives": [
+        "port 6379"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "cache_port",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "query_id": "q_distractor_cluster",
+      "query": "What is the deployment target cluster for staging?",
+      "expected_answer": "us-central1-k8s-prod",
+      "acceptable_alternatives": [
+        "us-central1-k8s-prod cluster"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "deploy_cluster",
+      "relevant_turn_indices": [
+        52,
+        53
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 54,
+    "distractors_count": 50
+  }
+}

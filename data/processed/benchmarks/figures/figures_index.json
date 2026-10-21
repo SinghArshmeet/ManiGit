@@ -1,0 +1,9 @@
+{
+  "fig1_context_vs_budget": 5,
+  "fig2_fact_recall_vs_budget": 5,
+  "fig3_correctness_vs_budget": 5,
+  "fig4_historical_recovery": 8,
+  "fig5_contradiction_handling": 8,
+  "fig6_ablation_degradation": 3,
+  "fig7_efficiency_tradeoff": 8
+}

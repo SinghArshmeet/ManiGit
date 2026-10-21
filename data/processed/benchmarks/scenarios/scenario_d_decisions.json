@@ -1,0 +1,93 @@
+{
+  "scenario_id": "scenario_d_decisions",
+  "name": "Architectural Decisions Scenario",
+  "category": "decisions",
+  "description": "Evaluates retention of explicit architectural and design decisions.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "We decided to use JWT authentication rather than session cookies.",
+      "is_distractor": false,
+      "contains_fact": "use JWT authentication rather than session cookies",
+      "fact_key": "auth_decision"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Decision recorded: JWT authentication selected over session cookies.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "We will adopt event sourcing for the billing domain.",
+      "is_distractor": false,
+      "contains_fact": "adopt event sourcing for the billing domain",
+      "fact_key": "billing_arch"
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "Billing architecture specified as event sourcing.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "Let's review the upcoming release schedule.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "Release schedule reviewed.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_decision_auth",
+      "query": "What authentication approach did we decide on?",
+      "expected_answer": "JWT authentication",
+      "acceptable_alternatives": [
+        "JWT",
+        "JWT tokens"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "auth_decision",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "query_id": "q_decision_billing",
+      "query": "What architecture did we decide to adopt for the billing domain?",
+      "expected_answer": "event sourcing",
+      "acceptable_alternatives": [
+        "event-sourcing",
+        "Event Sourcing"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "billing_arch",
+      "relevant_turn_indices": [
+        2,
+        3
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 6
+  }
+}

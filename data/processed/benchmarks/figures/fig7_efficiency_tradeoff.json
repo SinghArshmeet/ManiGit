@@ -1,0 +1,74 @@
+[
+  {
+    "method": "Full History",
+    "avg_context_tokens": 298.37,
+    "std_context_tokens": 374.06,
+    "answer_correctness": 0.7909,
+    "ci_lower": 0.7057,
+    "ci_upper": 0.8564,
+    "trials_count": 110
+  },
+  {
+    "method": "ManiGit (full)",
+    "avg_context_tokens": 170.15,
+    "std_context_tokens": 221.95,
+    "answer_correctness": 0.8636,
+    "ci_lower": 0.7871,
+    "ci_upper": 0.9156,
+    "trials_count": 110
+  },
+  {
+    "method": "ManiGit (no_confidence)",
+    "avg_context_tokens": 169.19,
+    "std_context_tokens": 222.54,
+    "answer_correctness": 0.8182,
+    "ci_lower": 0.7358,
+    "ci_upper": 0.8791,
+    "trials_count": 110
+  },
+  {
+    "method": "ManiGit (no_contradiction)",
+    "avg_context_tokens": 170.69,
+    "std_context_tokens": 221.67,
+    "answer_correctness": 0.8182,
+    "ci_lower": 0.7358,
+    "ci_upper": 0.8791,
+    "trials_count": 110
+  },
+  {
+    "method": "ManiGit (no_tier)",
+    "avg_context_tokens": 171.0,
+    "std_context_tokens": 221.56,
+    "answer_correctness": 0.8545,
+    "ci_lower": 0.7767,
+    "ci_upper": 0.9084,
+    "trials_count": 110
+  },
+  {
+    "method": "RAG-Style (Raw Messages)",
+    "avg_context_tokens": 188.72,
+    "std_context_tokens": 191.91,
+    "answer_correctness": 0.9091,
+    "ci_lower": 0.8407,
+    "ci_upper": 0.9499,
+    "trials_count": 110
+  },
+  {
+    "method": "Running Summary",
+    "avg_context_tokens": 33.36,
+    "std_context_tokens": 11.51,
+    "answer_correctness": 0.8636,
+    "ci_lower": 0.7871,
+    "ci_upper": 0.9156,
+    "trials_count": 110
+  },
+  {
+    "method": "Sliding Window (N=10)",
+    "avg_context_tokens": 136.07,
+    "std_context_tokens": 37.58,
+    "answer_correctness": 0.7182,
+    "ci_lower": 0.6279,
+    "ci_upper": 0.7938,
+    "trials_count": 110
+  }
+]

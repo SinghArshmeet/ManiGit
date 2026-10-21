@@ -1,0 +1,2 @@
+# Directory reserved for runtime SQLite database files (e.g., manigit.db).
+# Actual database files (*.db, *.sqlite) are excluded from git.

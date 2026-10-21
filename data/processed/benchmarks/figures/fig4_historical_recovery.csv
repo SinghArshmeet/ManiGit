@@ -1,0 +1,9 @@
+method,historical_recovery_rate,ci_lower,ci_upper,total_trials
+Full History,1.0,0.5655,1.0,5
+ManiGit (full),1.0,0.5655,1.0,5
+ManiGit (no_confidence),1.0,0.5655,1.0,5
+ManiGit (no_contradiction),1.0,0.5655,1.0,5
+ManiGit (no_tier),1.0,0.5655,1.0,5
+RAG-Style (Raw Messages),1.0,0.5655,1.0,5
+Running Summary,1.0,0.5655,1.0,5
+Sliding Window (N=10),1.0,0.5655,1.0,5

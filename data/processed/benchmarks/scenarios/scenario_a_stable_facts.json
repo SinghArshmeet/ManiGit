@@ -1,0 +1,109 @@
+{
+  "scenario_id": "scenario_a_stable_facts",
+  "name": "Stable Facts Scenario",
+  "category": "stable_facts",
+  "description": "Evaluates retention of stable technical configuration across dialogue turns.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "The backend database is PostgreSQL.",
+      "is_distractor": false,
+      "contains_fact": "backend database is PostgreSQL",
+      "fact_key": "database"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Understood. The backend database is set to PostgreSQL.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "Let us also implement the user registration endpoint.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "I will scaffold the user registration endpoint using our data model.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "Please ensure password hashing uses Argon2id.",
+      "is_distractor": false,
+      "contains_fact": "password hashing uses Argon2id",
+      "fact_key": "hashing"
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "Configured Argon2id for password hashing.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 6,
+      "role": "user",
+      "content": "Let's run the smoke tests now.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 7,
+      "role": "assistant",
+      "content": "Smoke tests passed successfully with 0 errors.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_stable_db",
+      "query": "What database are we using?",
+      "expected_answer": "PostgreSQL",
+      "acceptable_alternatives": [
+        "PostgreSQL database",
+        "postgres"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "database",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "query_id": "q_stable_hash",
+      "query": "What hashing algorithm was specified for passwords?",
+      "expected_answer": "Argon2id",
+      "acceptable_alternatives": [
+        "Argon2id hashing",
+        "argon2"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "hashing",
+      "relevant_turn_indices": [
+        4,
+        5
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 8
+  }
+}

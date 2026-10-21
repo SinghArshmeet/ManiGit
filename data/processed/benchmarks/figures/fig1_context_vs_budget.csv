@@ -1,0 +1,6 @@
+budget,Full History_mean,Full History_std,ManiGit (full)_mean,ManiGit (full)_std,ManiGit (no_confidence)_mean,ManiGit (no_confidence)_std,ManiGit (no_contradiction)_mean,ManiGit (no_contradiction)_std,ManiGit (no_tier)_mean,ManiGit (no_tier)_std,RAG-Style (Raw Messages)_mean,RAG-Style (Raw Messages)_std,Running Summary_mean,Running Summary_std,Sliding Window (N=10)_mean,Sliding Window (N=10)_std
+128,105.0,18.81,74.95,37.09,74.0,38.18,75.5,36.81,79.23,36.1,88.0,28.27,33.36,11.73,112.36,19.04
+256,165.5,66.43,118.59,87.32,117.64,88.29,119.14,86.92,118.59,87.32,143.86,88.55,33.36,11.73,142.0,39.47
+512,264.18,191.08,182.0,189.69,181.05,190.47,182.55,189.32,182.0,189.69,215.36,188.42,33.36,11.73,142.0,39.47
+1024,422.14,404.05,237.59,307.22,236.64,307.88,238.14,306.88,237.59,307.22,248.18,251.13,33.36,11.73,142.0,39.47
+2048,535.05,622.97,237.59,307.22,236.64,307.88,238.14,306.88,237.59,307.22,248.18,251.13,33.36,11.73,142.0,39.47

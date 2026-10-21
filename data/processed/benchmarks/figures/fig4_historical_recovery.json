@@ -1,0 +1,58 @@
+[
+  {
+    "method": "Full History",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "ManiGit (full)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "ManiGit (no_confidence)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "ManiGit (no_contradiction)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "ManiGit (no_tier)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "RAG-Style (Raw Messages)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "Running Summary",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  },
+  {
+    "method": "Sliding Window (N=10)",
+    "historical_recovery_rate": 1.0,
+    "ci_lower": 0.5655,
+    "ci_upper": 1.0,
+    "total_trials": 5
+  }
+]

@@ -1,0 +1,9 @@
+method,avg_context_tokens,std_context_tokens,answer_correctness,ci_lower,ci_upper,trials_count
+Full History,298.37,374.06,0.7909,0.7057,0.8564,110
+ManiGit (full),170.15,221.95,0.8636,0.7871,0.9156,110
+ManiGit (no_confidence),169.19,222.54,0.8182,0.7358,0.8791,110
+ManiGit (no_contradiction),170.69,221.67,0.8182,0.7358,0.8791,110
+ManiGit (no_tier),171.0,221.56,0.8545,0.7767,0.9084,110
+RAG-Style (Raw Messages),188.72,191.91,0.9091,0.8407,0.9499,110
+Running Summary,33.36,11.51,0.8636,0.7871,0.9156,110
+Sliding Window (N=10),136.07,37.58,0.7182,0.6279,0.7938,110

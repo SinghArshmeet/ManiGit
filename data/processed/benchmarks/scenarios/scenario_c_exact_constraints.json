@@ -1,0 +1,93 @@
+{
+  "scenario_id": "scenario_c_exact_constraints",
+  "name": "Exact Constraints Scenario",
+  "category": "exact_constraints",
+  "description": "Evaluates precision of exact numeric and boundary constraints through memory.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "role": "user",
+      "content": "The API timeout must remain below 500 ms.",
+      "is_distractor": false,
+      "contains_fact": "API timeout below 500 ms",
+      "fact_key": "api_timeout"
+    },
+    {
+      "turn_index": 1,
+      "role": "assistant",
+      "content": "Understood. The API timeout constraint is strictly 500 ms.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 2,
+      "role": "user",
+      "content": "The batch processing pool size is limited to 16 workers.",
+      "is_distractor": false,
+      "contains_fact": "batch pool size 16 workers",
+      "fact_key": "pool_size"
+    },
+    {
+      "turn_index": 3,
+      "role": "assistant",
+      "content": "Worker pool capped at 16.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 4,
+      "role": "user",
+      "content": "Let's optimize the serialization pipeline.",
+      "is_distractor": true,
+      "contains_fact": null,
+      "fact_key": null
+    },
+    {
+      "turn_index": 5,
+      "role": "assistant",
+      "content": "Serialization pipeline optimized.",
+      "is_distractor": false,
+      "contains_fact": null,
+      "fact_key": null
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_exact_timeout",
+      "query": "What is the exact API timeout constraint?",
+      "expected_answer": "500 ms",
+      "acceptable_alternatives": [
+        "500ms",
+        "below 500 ms"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "api_timeout",
+      "relevant_turn_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "query_id": "q_exact_pool",
+      "query": "What is the maximum worker pool size for batch processing?",
+      "expected_answer": "16 workers",
+      "acceptable_alternatives": [
+        "16",
+        "16 workers"
+      ],
+      "is_historical": false,
+      "target_commit_ref": null,
+      "target_fact_key": "pool_size",
+      "relevant_turn_indices": [
+        2,
+        3
+      ]
+    }
+  ],
+  "metadata": {
+    "total_turns": 6
+  }
+}

@@ -1,0 +1,4 @@
+ablation,fact_recall_delta,answer_correctness_delta,context_token_delta,contradiction_accuracy_delta,degraded_trials_count,total_pairs_evaluated
+ManiGit (no_contradiction),0.0,-0.05,0.55,-0.05,5,110
+ManiGit (no_confidence),-0.05,-0.05,-0.95,-0.05,5,110
+ManiGit (no_tier),-0.01,-0.01,0.85,-0.01,1,110
