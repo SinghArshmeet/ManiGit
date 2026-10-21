@@ -1,0 +1,3 @@
+"""
+ManiGit Web Package.
+"""
